@@ -56,7 +56,7 @@ const Gallery: NextPage = () => {
 
     return (
         <>
-            <div className="h-full flex flex-col justify-center items-center mt-10">
+            <div className="mx-auto h-full flex flex-col justify-center items-center mt-10">
                 <div className="mr-24">
                     <Image src={filter} alt="сортировать"></Image>
                     <span className="ml-5">Год</span>

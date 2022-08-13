@@ -66,7 +66,7 @@ const Gallery: NextPage = () => {
                     <Image src={up} alt="больше"></Image>
                     <Image src={down} alt="меньше"></Image>
                 </div>
-                <div className="mt-5 gap-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap w-9/12">
+                <div className="mt-5 ml-24 gap-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap w-9/12">
                     {/* FIX JANKY LAYOUT */}
 
                     <div className="flex flex-col gap-5 flex-none">

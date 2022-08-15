@@ -35,9 +35,9 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
             <div onMouseLeave={handeImageLeave} onMouseOver={handleImageHover} className="gallery__image relative">
                 <div><Image src={props.imageSrc} alt={props.imageAuthor + "," + props.imageTitle}></Image></div>
                 {/* maybe make description position conditional on native image size */}
-                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-64 sm:w-52 h-48 ">
-                    <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 w-80 h-48 text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
-                        <div className="absolute left-52 bottom-24"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
+                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-72 sm:w-52 h-48 ">
+                    <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 lg:w-80 md:w-72 sm:w-52 h-48 text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
+                        <div className="absolute lg:left-52 md:left-48 right-12 bottom-24"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
                         <div className="gallery__image_description_text text-center flex flex-col items-center">
                             <div className="mt-10">{props.imageTitle}</div>
                             <div><Image src={author} alt="автор"></Image>
@@ -48,7 +48,7 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
                                     {" "}{props.imagePrice}</div>
                             </div>
                         </div>
-                        <div className="absolute right-52 top-24"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
+                        <div className="absolute lg:right-52 md:right-48 sm:right-28 left-12 top-24"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
                     </div>
                 </div>
             </div>

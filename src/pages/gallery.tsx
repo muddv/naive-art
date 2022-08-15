@@ -31,7 +31,7 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
     }
 
     return (
-        <div className="flex flex-col gap-5 flex-none">
+        <div className="flex flex-col gap-y-5 flex-none">
             <div onMouseLeave={handeImageLeave} onMouseOver={handleImageHover} className="gallery__image relative">
                 <div><Image src={props.imageSrc} alt={props.imageAuthor + "," + props.imageTitle}></Image></div>
                 {/* maybe make description position conditional on native image size */}
@@ -71,7 +71,7 @@ const Gallery: NextPage = () => {
                         <div><Image src={up} alt="больше"></Image>
                         <Image src={down} alt="меньше"></Image></div>
                     </div>
-                    <div className="mt-5 gap-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
+                    <div className="mt-5 gap-x-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
                         {/* FIX JANKY LAYOUT */}
 
                         <div className="flex flex-col flex-none">

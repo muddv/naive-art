@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import { useState } from 'react'
+import type { ReactElement } from 'react'
 import Image from 'next/image'
 import sandwich from '../public/icons/menu__sandwich.svg'
 import sandwichActive from '../public/icons/menu__sandwich-active.svg'
@@ -11,7 +12,7 @@ import how from '../public/icons/menu__sandwich_how.svg'
 import delivery from '../public/icons/menu__sandwich_delivery.svg'
 import contacts from '../public/icons/menu__sandwich_contacts.svg'
 
-const Menu: NextPage = () => {
+const Header = () => {
     const [navMenu, setNavMenu] = useState(false);
     function handleMenuClick() {
         setNavMenu(!navMenu);
@@ -25,7 +26,7 @@ const Menu: NextPage = () => {
     // ADD VISIBILITY ON SCROLL FOR MOBILE
     return (
         <>
-            <div className="lg:w-1/2 mt-5 mx-auto">
+            <div className="mt-5 mx-auto w-9/12">
                 <div className="flex justify-between">
                     <div className="flex gap-10">
                         <div className="flex flex-col ml-10 flex-0">
@@ -43,7 +44,6 @@ const Menu: NextPage = () => {
                             <input placeholder="Поиск..." className={search ? "focus:outline-none ml-2" : "hidden"}></input>
                             <button onClick={handleSearchClick}><Image src={glass} alt="поиск"></Image></button>
                         </div>
-
                     </div>
                     <div className="flex gap-5 mr-10">
                         <Image src={basket} alt="корзина"></Image>
@@ -56,4 +56,27 @@ const Menu: NextPage = () => {
     )
 }
 
-export default Menu
+const Footer: NextPage = () => {
+    return (
+        <>
+            <Image src={separator} alt="граница футера"></Image>
+            <div className="flex flex-col h-44 justify-center align-baseline text-header-black ">
+                <h3 className="flex justify-center my-6 text-4xl font-semibold">Наивное искусство</h3>
+                <div className="flex flex-row gap-x-10 gap-y-4 justify-center flex-wrap"><span>МАГАЗИН</span> <span>НОВОСТИ</span> <span>ДОСТАВКА</span> <span>КОНТАКТЫ</span> <span>КАК ЗАКАЗАТЬ</span></div>
+                <div className="flex justify-center my-6">Политика конфиденциальности</div>
+            </div>
+        </>
+    )
+}
+
+const Layout = (props:{ children:ReactElement }) => {
+    return (
+        <>
+            <Header />
+            {props.children}
+            <Footer />
+        </>
+    );
+};
+
+export default Layout

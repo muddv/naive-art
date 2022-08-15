@@ -22,6 +22,7 @@ const Menu: NextPage = () => {
         setSearch(!search);
     }
 
+    // ADD VISIBILITY ON SCROLL FOR MOBILE
     return (
         <>
             <div className="lg:w-1/2 mt-5 mx-auto">

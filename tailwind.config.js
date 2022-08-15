@@ -3,6 +3,9 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        "montserrat": ["Montserrat", "sans-serif;"]
+      },
       fontSize: {
         "header1": ["76px", {
           letterSpacing: "-0.025em",

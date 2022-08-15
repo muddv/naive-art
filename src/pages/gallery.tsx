@@ -62,30 +62,30 @@ const Gallery: NextPage = () => {
         <>
             <div className="flex justify-center w-full">
                 <div className="h-full flex flex-col justify-center items-center mt-10">
-                    <div className="mr-24">
-                        <Image src={filter} alt="сортировать"></Image>
+                    <div className="ml-auto flex gap-x-2">
+                        <div><Image src={filter} alt="сортировать"></Image></div>
                         <span className="ml-5">Год</span>
-                        <Image src={up} alt="раньше"></Image>
-                        <Image src={down} alt="позже"></Image>
+                        <div><Image src={up} alt="раньше"></Image>
+                        <Image src={down} alt="позже"></Image></div>
                         <span className="ml-5">Цена</span>
-                        <Image src={up} alt="больше"></Image>
-                        <Image src={down} alt="меньше"></Image>
+                        <div><Image src={up} alt="больше"></Image>
+                        <Image src={down} alt="меньше"></Image></div>
                     </div>
                     <div className="mt-5 gap-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
                         {/* FIX JANKY LAYOUT */}
 
-                        <div className="flex flex-col gap-5 flex-none">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={item1 as unknown as StaticImageData["src"]} imageTitle="Бородатые лица зверей" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={item4 as unknown as StaticImageData["src"]} imageTitle="Котенок" imageAuthor="Татьяна Еленок" imageYear={1973} imagePrice="23.000 ₽"></GalleryImage>
                         </div>
 
-                        <div className="flex flex-col gap-5 flex-none">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={item2 as unknown as StaticImageData["src"]} imageTitle="Преображение" imageAuthor="Виктор Тимофеев" imageYear={2011} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={item5 as unknown as StaticImageData["src"]} imageTitle="Пора тополиного пуха" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="25.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={item7 as unknown as StaticImageData["src"]} imageTitle="На пруду" imageAuthor="Михаил Ржанников" imageYear={1992} imagePrice="13.000 ₽"></GalleryImage>
                         </div>
 
-                        <div className="flex flex-col gap-5 flex-none">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={item3 as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={item6 as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>
                         </div>

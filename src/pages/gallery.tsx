@@ -4,7 +4,9 @@ import Image, { StaticImageData } from 'next/image'
 import filter from '../public/icons/gallery__filter.svg'
 import up from '../public/icons/gallery__filter_up.svg'
 import down from '../public/icons/gallery__filter_down.svg'
+// replace with original
 import author from '../public/icons/gallery-image__author.svg'
+// replace with original
 import price from '../public/icons/gallery-image__price.svg'
 import lowerBoundary from '../public/icons/gallery-image__lower-boundary.svg'
 import upperBoundary from '../public/icons/gallery-image__upper-boundary.svg'
@@ -30,22 +32,24 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
 
     return (
         <div className="flex flex-col gap-5 flex-none">
-            <div onMouseLeave={handeImageLeave} onMouseOver={handleImageHover} className="relative">
-                <Image className="absolute" src={props.imageSrc} alt={props.imageAuthor + "," + props.imageTitle}></Image>
+            <div onMouseLeave={handeImageLeave} onMouseOver={handleImageHover} className="gallery__image relative">
+                <div><Image src={props.imageSrc} alt={props.imageAuthor + "," + props.imageTitle}></Image></div>
                 {/* maybe make description position conditional on native image size */}
-                <div className={imageDescription === "show" ? "lg:w-80 md:w-64 sm:w-52 h-48 left-5 text-center transition-all absolute bg-body-gray bg-opacity-60 p-12  bottom-12 text-white font-semibold" : "hidden"}>
-                    <div className="absolute left-52 bottom-24"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
-                    {props.imageTitle}
-                    <div>
-                        <Image src={author} alt="автор" className="mr-10"></Image>
-                        {" "}{props.imageAuthor}
+                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-64 sm:w-52 h-48 ">
+                    <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 w-80 h-48 text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
+                        <div className="absolute left-52 bottom-24"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
+                        <div className="gallery__image_description_text text-center flex flex-col items-center">
+                            <div className="mt-10">{props.imageTitle}</div>
+                            <div><Image src={author} alt="автор"></Image>
+                                {" "}{props.imageAuthor}</div>
+                            {props.imageYear} .г
+                            <div>
+                                <div className="mt-2"><Image src={price} alt="цена"></Image>
+                                    {" "}{props.imagePrice}</div>
+                            </div>
+                        </div>
+                        <div className="absolute right-52 top-24"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
                     </div>
-                    {props.imageYear} .г
-                    <div>
-                        <Image src={price} alt="цена" className="mr-10"></Image>
-                        {" "}{props.imagePrice}
-                    </div>
-                    <div className="absolute right-52 top-24"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
                 </div>
             </div>
         </div>

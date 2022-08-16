@@ -11,11 +11,24 @@ module.exports = {
           letterSpacing: "-0.025em",
           lineHeight: "90%"
         }
-        ]
+        ],
+        "header2": ["32px", {
+          lineHeight: "28.8px"
+        }]
       },
       colors: {
-        "header-black": "#292D32",
+        "naive-black": "#292D32",
         "body-gray": "#292D32"
+      },
+      height: {
+        100: "479px",
+        101: "498px"
+      },
+      width: {
+        100: "960px",
+        101: "1154px",
+        newsImage: "560px",
+        newsText: "564px"
       }
     },
   },

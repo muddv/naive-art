@@ -1,7 +1,28 @@
 import Head from 'next/head'
+import Image, { StaticImageData } from 'next/image'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
 import { ReactElement } from 'react'
+import headerBg from '../public/images/news__header-bg.png'
+import newsImage1 from '../public/images/gallery__item-3.png'
+import newsImage2 from '../public/images/gallery__item-5.png'
+
+function NewsItem(props: { newsTitle: string, newsText: string, newsImageSrc: StaticImageData["src"], newsImagePosition: boolean }) {
+  return (
+    <>
+      <div className="text-naive-black mx-auto flex justify-center w-101">
+        <div className="flex flex-col lg:flex-row gap-x-5">
+          <div className={props.newsImagePosition ? "flex-none" : "hidden"}><Image src={props.newsImageSrc} alt={props.newsTitle + "Иллюстрация"}></Image></div>
+          <div className="flex justify-center flex-col align-middle gap-5 w-newsText">
+            <h2 className="flex font-semibold text-header2">{props.newsTitle}</h2>
+            {props.newsText}
+          </div>
+          <div className={props.newsImagePosition ? "hidden" : "flex-none"}><Image src={props.newsImageSrc} alt={props.newsTitle + "Иллюстрация"}></Image></div>
+        </div>
+      </div>
+    </>
+  )
+}
 
 const Home: NextPageWithLayout = () => {
   return (
@@ -10,12 +31,33 @@ const Home: NextPageWithLayout = () => {
         <title>Наивное искусство - Новости</title>
         <meta name="description" content="Новости Наивного Искусства" />
       </Head>
-
-      <header className="flex flex-col justify-center items-center">
-        <div className="lg:w-1/2 md:w-3/4">
-          <h1 className="text-header1 font-semibold text-center text-header-black">Новости</h1>
+      <div className="w-screen flex justify-center -mt-2">
+        <div className="flex lg:flex-none w-101 h-101">
+          <Image className="relative" src={headerBg} alt="Фоновое изображение"></Image>
         </div>
-      </header>
+        <div className="bg-white text-naive-black text-center text-2xl w-100 h-100 absolute top-52 flex">
+          <div>
+            <h1 className="text-header1 font-semibold text-center my-10">Немного об искусстве</h1>
+            <div className="mx-24 font-normal flex justify-center">
+              Есть над чем задуматься: многие известные личности
+              заблокированы в рамках своих собственных рациональных
+              ограничений. Есть над чем задуматься: диаграммы связей,
+              инициированные исключительно синтетически, рассмотрены
+              исключительно в разрезе маркетинговых и финансовых
+              предпосылок.
+            </div>
+            <button className="mt-5 bg-transparent hover:bg-naive-black py-2 px-4 border border-naive-black rounded hover:text-white">В МАГАЗИН</button>
+          </div>
+        </div>
+      </div>
+      <div className="mt-32">
+        <NewsItem newsTitle="НОВАЯ НОВОСТЬ"
+          newsText="Кстати, реплицированные с зарубежных источников, современные исследования, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут превращены в посмешище, хотя само их существование приносит несомненную пользу обществу. Таким образом, сложившаяся структура организации обеспечивает актуальность прогресса профессионального сообщества. Для современного мира сплочённость команды профессионалов не оставляет шанса для экономической целесообразности принимаемых решений."
+          newsImageSrc={newsImage1 as unknown as StaticImageData["src"]} newsImagePosition={true}></NewsItem>
+          <NewsItem newsTitle="ЕЩЕ НОВОСТЬ"
+          newsText="Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта: сложившаяся структура организации обеспечивает широкому кругу (специалистов) участие в формировании форм воздействия. В целом, конечно, внедрение современных методик прекрасно подходит для реализации дальнейших направлений развития. Внезапно, многие известные личности представлены в исключительно положительном свете."
+          newsImageSrc={newsImage2 as unknown as StaticImageData["src"]} newsImagePosition={false}></NewsItem>
+      </div>
     </>
   )
 }

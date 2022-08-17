@@ -4,9 +4,9 @@ import Link from 'next/link'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
 import { ReactElement } from 'react'
-import headerBg from '../public/images/news__header-bg.png'
-import newsImage1 from '../public/images/gallery__item-3.png'
-import newsImage2 from '../public/images/gallery__item-5.png'
+import headerBg from '../assets/images/news__header-bg.png'
+import newsImage1 from '../assets/images/gallery__item-3.png'
+import newsImage2 from '../assets/images/gallery__item-5.png'
 
 function NewsItem(props: { newsTitle: string, newsText: string, newsImageSrc: StaticImageData["src"], newsImagePosition: boolean }) {
   return (

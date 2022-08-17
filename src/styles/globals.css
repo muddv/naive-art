@@ -5,17 +5,17 @@
 @layer base {
     @font-face {
       font-family: 'Montserrat', sans-serif;
-      src: url("../public/fonts/Montserrat-Regular.woff2") format("woff2");
+      src: url("../assets/fonts/Montserrat-Regular.woff2") format("woff2");
       font-weight: 400;
     }
     @font-face {
         font-family: 'Montserrat', sans-serif;
-        src: url("../public/fonts/Montserrat-Medium.woff2") format("woff2");
+        src: url("../assets/fonts/Montserrat-Medium.woff2") format("woff2");
         font-weight: 500;
     }
     @font-face {
         font-family: 'Montserrat', sans-serif;
-        src: url("../public/fonts/Montserrat-SemiBold.woff2") format("woff2");
+        src: url("../assets/fonts/Montserrat-SemiBold.woff2") format("woff2");
         font-weight: 600;
     }
     html {

@@ -11,13 +11,6 @@ import author from '../assets/icons/gallery-image__author.svg'
 import price from '../assets/icons/gallery-image__price.svg'
 import lowerBoundary from '../assets/icons/gallery-image__lower-boundary.svg'
 import upperBoundary from '../assets/icons/gallery-image__upper-boundary.svg'
-import item1 from '../assets/images/gallery__item-1.png'
-import item2 from '../assets/images/gallery__item-2.png'
-import item3 from '../assets/images/gallery__item-3.png'
-import item4 from '../assets/images/gallery__item-4.png'
-import item5 from '../assets/images/gallery__item-5.png'
-import item6 from '../assets/images/gallery__item-6.png'
-import item7 from '../assets/images/gallery__item-7.png'
 
 function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: string, imageAuthor: string, imageYear: number, imagePrice: string }) {
 
@@ -90,18 +83,19 @@ const Gallery: NextPage = () => {
                     <div className="mt-5 gap-x-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
                         {/* FIX JANKY LAYOUT */}
 
-                        <div className="flex flex-col flex-none">
+                        <div className="flex flex-col flex-none mx-10">
                             <GalleryImage imageSrc={"/gallery__item-1.png" as unknown as StaticImageData["src"]} imageTitle="Бородатые лица зверей" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-4.png" as unknown as StaticImageData["src"]} imageTitle="Котенок" imageAuthor="Татьяна Еленок" imageYear={1973} imagePrice="23.000 ₽"></GalleryImage>
                         </div>
 
-                        <div className="flex flex-col flex-none">
+                        <div className="flex flex-col flex-none mx-10">
                             <GalleryImage imageSrc={"/gallery__item-2.png" as unknown as StaticImageData["src"]} imageTitle="Преображение" imageAuthor="Виктор Тимофеев" imageYear={2011} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-5.png" as unknown as StaticImageData["src"]} imageTitle="Пора тополиного пуха" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="25.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-7.png" as unknown as StaticImageData["src"]} imageTitle="На пруду" imageAuthor="Михаил Ржанников" imageYear={1992} imagePrice="13.000 ₽"></GalleryImage>
                         </div>
 
-                        <div className="flex flex-col flex-none">
+                            {/* this needs better styling for smaller screens */}
+                        <div className="flex flex-row gap-x-16 mx-10 lg:flex-col flex-none">
                             <GalleryImage imageSrc={"/gallery__item-3.png" as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-6.png" as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>
                         </div>

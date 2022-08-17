@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Image, { StaticImageData } from 'next/image'
+import { useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
@@ -9,22 +10,42 @@ import { ReactElement } from 'react'
 const Product: NextPageWithLayout = () => {
   const router = useRouter()
   const { title, imageSrc } = router.query
-  function handleClick() {
-    console.log("title:", title)
-    console.log("imageSrc:", imageSrc)
-  }
+  const [ratio, setRatio] = useState(16 / 9)
   return (
     <>
       <Head>
         <title>Наивное искусство - Новости</title>
         <meta name="description" content="Сведения о картине" />
       </Head>
-      <div className="w-screen h-100 flex justify-center">
-        <h2 className="h-1/2">ПРОИЗВЕДЕНИЕ</h2>
-        <div className="flex flex-col w-48 h-48">
-          <Image src='/gallery__item-1.png' alt={title as string}></Image>
-          <div>{imageSrc}</div>
-          <button onClick={handleClick} className="bg-red-500">jfwjewjef</button>
+      <div className="text-naive-black flex justify-center w-screen h-100">
+        <div className="w-3/4 flex flex-col">
+          <h2 className="text-header2">ПРОИЗВЕДЕНИЕ</h2>
+          <div className="mt-5 flex flex-row">
+            <div className="relative flex-none w-fit h-fit"><Image
+              src={imageSrc as unknown as StaticImageData["src"]}
+              alt={title as string}
+              width={360}
+              height={360 / ratio}
+              layout="intrinsic"
+              onLoadingComplete={({ naturalWidth, naturalHeight }) =>
+                setRatio(naturalWidth / naturalHeight)
+              }>
+            </Image></div>
+            <div className="w-100 h-full mx-10">
+              <h2>{title}</h2>
+              <h3>АВТОР</h3><span>ГОД</span>
+              <div>
+                Современные технологии достигли такого уровня,
+                что глубокий уровень погружения представляет собой
+                интересный эксперимент проверки новых принципов
+                формирования материально-технической и кадровой базы.
+              </div>
+              <div>TECHNIQUE WOOD OIL</div>
+              <div>SIZE XXXX x XXXX mm</div>
+              <div>PRICE XXXXXX$</div>
+              <button>В КОРЗИНУ</button>
+            </div>
+          </div>
         </div>
       </div>
     </>

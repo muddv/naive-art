@@ -6,6 +6,34 @@ import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
 import { ReactElement } from 'react'
+import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
+
+type Artwork = {
+  title: string,
+  id: number
+}
+
+async function getStaticProps() {
+  const client = new ApolloClient({
+    uri: "http://localhost:5001/api/graphql/",
+    cache: new InMemoryCache()
+  });
+
+  const { data } = await client.query({
+    query: gql`
+    query allArtworks {
+      allArtworks {
+        title,
+        id
+      }
+    }
+     `})
+  return {
+    props: {
+      artworks: data.allArtworks as Artwork
+    }
+  }
+}
 
 const Product: NextPageWithLayout = () => {
   const router = useRouter()
@@ -33,7 +61,8 @@ const Product: NextPageWithLayout = () => {
             </Image></div>
             <div className="w-100 h-full mx-10">
               <h2>{title}</h2>
-              <h3>АВТОР</h3><span>ГОД</span>
+              <h3>АВТОР</h3>
+              <span>ГОД</span>
               <div>
                 Современные технологии достигли такого уровня,
                 что глубокий уровень погружения представляет собой

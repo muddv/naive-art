@@ -11,7 +11,7 @@ import iconPrice from '../assets/icons/product__price.svg'
 
 const Product: NextPageWithLayout = () => {
   const router = useRouter()
-  const { title, imageSrc, author, year, price } = router.query
+  const { title="Название Произведения", imageSrc='/gallery__item-1.png', author="Автор Произведения", year="Год написания", price="цена" } = router.query
   const [ratio, setRatio] = useState(16 / 9)
   return (
     <>

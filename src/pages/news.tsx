@@ -50,7 +50,7 @@ const Home: NextPageWithLayout = () => {
               предпосылок.
             </div>
             <Link href="/">
-              <button className="mt-5 mx-auto w-44 flex-none bg-transparent hover:bg-naive-black py-2 px-4 border border-naive-black rounded hover:text-white">В МАГАЗИН</button>
+              <button className="my-5 mx-auto w-44 flex-none bg-transparent hover:bg-naive-black py-2 px-4 border border-naive-black rounded hover:text-white">В МАГАЗИН</button>
             </Link>
           </div>
         </div>

@@ -6,38 +6,12 @@ import { useRouter } from 'next/router'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
 import { ReactElement } from 'react'
-import { ApolloClient, InMemoryCache, gql } from '@apollo/client';
-
-type Artwork = {
-  title: string,
-  id: number
-}
-
-async function getStaticProps() {
-  const client = new ApolloClient({
-    uri: "http://localhost:5001/api/graphql/",
-    cache: new InMemoryCache()
-  });
-
-  const { data } = await client.query({
-    query: gql`
-    query allArtworks {
-      allArtworks {
-        title,
-        id
-      }
-    }
-     `})
-  return {
-    props: {
-      artworks: data.allArtworks as Artwork
-    }
-  }
-}
+import iconAuthor from '../assets/icons/product__author.svg'
+import iconPrice from '../assets/icons/product__price.svg'
 
 const Product: NextPageWithLayout = () => {
   const router = useRouter()
-  const { title, imageSrc } = router.query
+  const { title, imageSrc, author, year, price } = router.query
   const [ratio, setRatio] = useState(16 / 9)
   return (
     <>
@@ -61,18 +35,29 @@ const Product: NextPageWithLayout = () => {
             </Image></div>
             <div className="w-100 h-full mx-10">
               <h2>{title}</h2>
-              <h3>АВТОР</h3>
-              <span>ГОД</span>
+              <div className='flex'><Image src={iconAuthor} alt="автор"></Image><h3 className="transition-all hover:underline"><Link href="/author">{author}</Link> {year} г.</h3></div>
+              <span></span>
               <div>
                 Современные технологии достигли такого уровня,
                 что глубокий уровень погружения представляет собой
                 интересный эксперимент проверки новых принципов
                 формирования материально-технической и кадровой базы.
               </div>
-              <div>TECHNIQUE WOOD OIL</div>
-              <div>SIZE XXXX x XXXX mm</div>
-              <div>PRICE XXXXXX$</div>
-              <button>В КОРЗИНУ</button>
+              <div className="mt-2 flex gap-5">
+                <div>
+                  <h4>Техника</h4>
+                  ДВП, Масло
+                </div>
+                <div>
+                  <h4>Размер</h4>
+                  700x500 мм
+                </div>
+                <div>
+                  <h4>Цена</h4>
+                  <div><Image src={iconPrice} alt="цена"></Image>{price}</div>
+                </div>
+                <button className="mt-5 mx-5 h-10 w-28 flex-none bg-transparent hover:bg-naive-black border border-naive-black rounded hover:text-white">В КОРЗИНУ</button>
+              </div>
             </div>
           </div>
         </div>

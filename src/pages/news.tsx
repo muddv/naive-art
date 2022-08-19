@@ -31,7 +31,7 @@ const Home: NextPageWithLayout = () => {
   return (
     <>
       <Head>
-        <title>Наивное искусство - Новости</title>
+        <title>Новости - Наивное искусство</title>
         <meta name="description" content="Новости Наивного Искусства" />
       </Head>
       <div className="w-screen flex justify-center -mt-2">

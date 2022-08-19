@@ -35,9 +35,9 @@ const Header = () => {
                             <div className={navMenu ? "absolute z-50 p-7 mt-7 bg-white  rounded-lg shadow w-64 h-80 flex flex-col justify-center" : "hidden"}>
                                 <ul className="flex flex-col gap-5">
                                     <li className="flex gap-2"><Image src={shop} alt="магазин"></Image><Link href="/">МАГАЗИН</Link></li>
-                                    <li className="flex gap-2"><Image src={how} alt="как заказать"></Image>КАК ЗАКАЗАТЬ</li>
-                                    <li className="flex gap-2"><Image src={delivery} alt="доствка"></Image>ДОСТАВКА</li>
-                                    <li className="flex gap-2"><Image src={contacts} alt="контакты"></Image>КОНТАКТЫ</li>
+                                    <li className="flex gap-2"><Image src={how} alt="как заказать"></Image><Link href="/how">КАК ЗАКАЗАТЬ</Link></li>
+                                    <li className="flex gap-2"><Image src={delivery} alt="доствка"></Image><Link href="/delivery">ДОСТАВКА</Link></li>
+                                    <li className="flex gap-2"><Image src={contacts} alt="контакты"></Image><Link href="/contacts">КОНТАКТЫ</Link></li>
                                 </ul>
                             </div>
                         </div>
@@ -48,7 +48,7 @@ const Header = () => {
                     </div>
                     <div className="flex gap-5 mr-10">
                         <Image src={basket} alt="корзина"></Image>
-                        <span>Корзина</span>
+                        <span><Link href="/cart">Корзина</Link></span>
                     </div>
                 </div>
             </div>
@@ -66,11 +66,11 @@ const Footer: NextPage = () => {
                 <div className="flex flex-row gap-x-10 gap-y-4 justify-center flex-wrap">
                     <span className="transition-all hover:underline"><Link href="/">МАГАЗИН</Link></span>
                     <span className="transition-all hover:underline"><Link href="/news">НОВОСТИ</Link></span>
-                    <span>ДОСТАВКА</span>
-                    <span>КОНТАКТЫ</span>
-                    <span>КАК ЗАКАЗАТЬ</span>
+                    <span className="transition-all hover:underline"><Link href="/delivery">ДОСТАВКА</Link></span>
+                    <span className="transition-all hover:underline"><Link href="/contacts">КОНТАКТЫ</Link></span>
+                    <span className="transition-all hover:underline"><Link href="/how">КАК ЗАКАЗАТЬ</Link></span>
                 </div>
-                <div className="flex justify-center my-6">Политика конфиденциальности</div>
+                <div className="flex justify-center my-6 transition-all hover:underline"><Link href="/confidentiality">Политика конфиденциальности</Link></div>
             </div>
         </>
     )

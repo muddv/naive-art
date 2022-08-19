@@ -83,7 +83,7 @@ const Gallery: NextPage = () => {
                     <div className="mt-5 gap-x-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
                         {/* FIX JANKY LAYOUT */}
 
-                        <div className="flex flex-col flex-none">
+                        <div className="flex flex-col flex-none mx-0">
                             <GalleryImage imageSrc={"/gallery__item-1.png" as unknown as StaticImageData["src"]} imageTitle="Бородатые лица зверей" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-4.png" as unknown as StaticImageData["src"]} imageTitle="Котенок" imageAuthor="Татьяна Еленок" imageYear={1973} imagePrice="23.000 ₽"></GalleryImage>
                         </div>
@@ -95,7 +95,7 @@ const Gallery: NextPage = () => {
                         </div>
 
                             {/* this needs better styling for smaller screens */}
-                        <div className="flex flex-row gap-x-16 lg:flex-col flex-none">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={"/gallery__item-3.png" as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-6.png" as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>
                         </div>

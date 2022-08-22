@@ -42,7 +42,7 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
                     </Image>
                 </div>
                 {/* maybe make description position conditional on native image size */}
-                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-72 sm:w-52 h-[90%]">
+                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto w-[90%] h-[90%]">
                     <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 lg:w-80 md:w-72 sm:w-52 h-full text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
                         <div className="flex justify-center h-full items-center">
                             <div className="absolute top-5 right-5"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
@@ -86,10 +86,10 @@ const Gallery: NextPage = () => {
                         <div><Image src={up} alt="больше"></Image>
                             <Image src={down} alt="меньше"></Image></div>
                     </div>
-                    <div className="mt-5 gap-x-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-cols-2 flex-wrap ">
+                    <div className="mt-5 gap-x-5 lg:flex sm:flex lg:flex-row sm:flex-col md:grid md:grid-rows-2 md:grid-cols-2 flex-wrap">
                         {/* FIX JANKY LAYOUT */}
 
-                        <div className="flex flex-col flex-none mx-0">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={"/gallery__item-1.png" as unknown as StaticImageData["src"]} imageTitle="Бородатые лица зверей" imageAuthor="Виктор Тимофеев" imageYear={2022} imagePrice="18.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-4.png" as unknown as StaticImageData["src"]} imageTitle="Котенок" imageAuthor="Татьяна Еленок" imageYear={1973} imagePrice="23.000 ₽"></GalleryImage>
                         </div>
@@ -101,7 +101,7 @@ const Gallery: NextPage = () => {
                         </div>
 
                         {/* this needs better styling for smaller screens */}
-                        <div className="flex flex-col flex-none">
+                        <div className="flex lg:flex-col sm:flex-col flex-none md:flex-row md:gap-x-16">
                             <GalleryImage imageSrc={"/gallery__item-3.png" as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-6.png" as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>
                         </div>

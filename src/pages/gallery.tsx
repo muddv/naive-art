@@ -35,29 +35,31 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
                         alt={props.imageAuthor + "," + props.imageTitle}
                         width={360}
                         height={360 / ratio}
-                        layout="intrinsic" 
+                        layout="intrinsic"
                         onLoadingComplete={({ naturalWidth, naturalHeight }) =>
                             setRatio(naturalWidth / naturalHeight)
                         }>
                     </Image>
                 </div>
                 {/* maybe make description position conditional on native image size */}
-                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-72 sm:w-52 h-48 ">
-                    <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 lg:w-80 md:w-72 sm:w-52 h-48 text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
-                        <div className="absolute lg:left-52 md:left-48 right-12 bottom-24"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
-                        <div className="gallery__image_description_text text-center flex flex-col items-center">
-                            <div className="mt-10">
-                                <Link href={`./product/?title=${props.imageTitle}&imageSrc=${props.imageSrc}&author=${props.imageAuthor}&year=${props.imageYear}&price=${props.imagePrice}`}>{props.imageTitle}</Link>
+                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto lg:w-80 md:w-72 sm:w-52 h-3/4">
+                    <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 lg:w-80 md:w-72 sm:w-52 h-full text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
+                        <div className="flex justify-center h-full items-center">
+                            <div className="absolute top-5 right-5"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>
+                            <div className="gallery__image_description_text text-center flex flex-col items-center">
+                                <div className="">
+                                    <Link href={`./product/?title=${props.imageTitle}&imageSrc=${props.imageSrc}&author=${props.imageAuthor}&year=${props.imageYear}&price=${props.imagePrice}`}>{props.imageTitle}</Link>
+                                </div>
+                                <div><Image src={author} alt="автор"></Image>
+                                    {" "}<Link href="/author">{props.imageAuthor}</Link></div>
+                                {props.imageYear} .г
+                                <div>
+                                    <div className="mt-2"><Image src={price} alt="цена"></Image>
+                                        {" "}{props.imagePrice}</div>
+                                </div>
                             </div>
-                            <div><Image src={author} alt="автор"></Image>
-                                {" "}<Link href="/author">{props.imageAuthor}</Link></div>
-                            {props.imageYear} .г
-                            <div>
-                                <div className="mt-2"><Image src={price} alt="цена"></Image>
-                                    {" "}{props.imagePrice}</div>
-                            </div>
+                            <div className="absolute bottom-5 left-5"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
                         </div>
-                        <div className="absolute lg:right-52 md:right-48 sm:right-28 left-12 top-24"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>
                     </div>
                 </div>
             </div>
@@ -94,7 +96,7 @@ const Gallery: NextPage = () => {
                             <GalleryImage imageSrc={"/gallery__item-7.png" as unknown as StaticImageData["src"]} imageTitle="На пруду" imageAuthor="Михаил Ржанников" imageYear={1992} imagePrice="13.000 ₽"></GalleryImage>
                         </div>
 
-                            {/* this needs better styling for smaller screens */}
+                        {/* this needs better styling for smaller screens */}
                         <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={"/gallery__item-3.png" as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-6.png" as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>

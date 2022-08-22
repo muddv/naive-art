@@ -41,9 +41,9 @@ const Header = () => {
                                 </ul>
                             </div>
                         </div>
-                        <div className={search ? "transition-all absolute ml-24 border-2 border-black p-2 top-3" : ""}>
-                            <input placeholder="Поиск..." className={search ? "focus:outline-none ml-2" : "hidden"}></input>
-                            <button onClick={handleSearchClick}><Image src={glass} alt="поиск"></Image></button>
+                        <div className={search ? "absolute ml-20 border-2 border-black p-2 top-3 w-36 lg:w-80" : ""}>
+                            <input autoFocus placeholder="Поиск..." className={search ? "focus:outline-none ml-2 w-28 lg:w-72" : "hidden"}></input>
+                            <button className={search ? "absolute top-2 left-28 lg:left-72" : ""} onClick={handleSearchClick}><Image src={glass} alt="поиск"></Image></button>
                         </div>
                     </div>
                     <div className="flex gap-5 mr-10">

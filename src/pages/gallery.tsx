@@ -50,12 +50,16 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
                                 <div className="">
                                     <Link href={`./product/?title=${props.imageTitle}&imageSrc=${props.imageSrc}&author=${props.imageAuthor}&year=${props.imageYear}&price=${props.imagePrice}`}>{props.imageTitle}</Link>
                                 </div>
-                                <div><Image src={author} alt="автор"></Image>
-                                    {" "}<Link href="/author">{props.imageAuthor}</Link></div>
-                                {props.imageYear} .г
+                                <div className="font-medium">
+                                    <div><Image src={author} alt="автор"></Image>
+                                        {" "}<Link href="/author">{props.imageAuthor}</Link></div>
+
+                                    {props.imageYear} .г
+                                </div>
                                 <div>
                                     <div className="mt-2"><Image src={price} alt="цена"></Image>
                                         {" "}{props.imagePrice}</div>
+
                                 </div>
                             </div>
                             <div className="absolute bottom-5 left-5"><Image src={lowerBoundary} alt="Нижняя граница описания картины"></Image></div>

@@ -42,7 +42,7 @@ function GalleryImage(props: { imageSrc: StaticImageData["src"], imageTitle: str
                     </Image>
                 </div>
                 {/* maybe make description position conditional on native image size */}
-                <div className="gallery__image_description absolute left-0 right-0 top-1/2 mx-auto w-[90%] h-[90%]">
+                <div className={imageDescription === "show" ? "gallery__image_description absolute left-0 right-0 top-1/2 mx-auto w-[90%] h-[90%]" : "hidden"}>
                     <div className={imageDescription === "show" ? "absolute left-0 right-0 bottom-1/2 lg:w-80 md:w-72 sm:w-52 h-full text-center bg-body-gray bg-opacity-60 text-white font-semibold" : "hidden"}>
                         <div className="flex justify-center h-full items-center">
                             <div className="absolute top-5 right-5"><Image src={upperBoundary} alt="Верхняя граница описания картины"></Image></div>

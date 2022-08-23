@@ -12,6 +12,7 @@ import shop from '../assets/icons/menu__sandwich_shop.svg'
 import how from '../assets/icons/menu__sandwich_how.svg'
 import delivery from '../assets/icons/menu__sandwich_delivery.svg'
 import contacts from '../assets/icons/menu__sandwich_contacts.svg'
+import news from '../assets/icons/menu__sandwich_news.svg'
 
 const Header = () => {
     const [navMenu, setNavMenu] = useState(false);
@@ -35,6 +36,7 @@ const Header = () => {
                             <div className={navMenu ? "absolute z-50 p-7 mt-7 bg-white  rounded-lg shadow w-64 h-80 flex flex-col justify-center" : "hidden"}>
                                 <ul className="flex flex-col gap-5">
                                     <li className="flex gap-2"><Image src={shop} alt="магазин"></Image><Link href="/">МАГАЗИН</Link></li>
+                                    <li className="flex gap-2"><Image src={news} alt="новости"></Image><Link href="/news">НОВОСТИ</Link></li>
                                     <li className="flex gap-2"><Image src={how} alt="как заказать"></Image><Link href="/how">КАК ЗАКАЗАТЬ</Link></li>
                                     <li className="flex gap-2"><Image src={delivery} alt="доствка"></Image><Link href="/delivery">ДОСТАВКА</Link></li>
                                     <li className="flex gap-2"><Image src={contacts} alt="контакты"></Image><Link href="/contacts">КОНТАКТЫ</Link></li>

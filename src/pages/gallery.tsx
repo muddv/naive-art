@@ -101,7 +101,7 @@ const Gallery: NextPage = () => {
                         </div>
 
                         {/* this needs better styling for smaller screens */}
-                        <div className="flex lg:flex-col sm:flex-col flex-none md:flex-row md:gap-x-16">
+                        <div className="flex flex-col flex-none">
                             <GalleryImage imageSrc={"/gallery__item-3.png" as unknown as StaticImageData["src"]} imageTitle="Картина с кошкой" imageAuthor="Иван Генералич" imageYear={2022} imagePrice="40.000 ₽"></GalleryImage>
                             <GalleryImage imageSrc={"/gallery__item-6.png" as unknown as StaticImageData["src"]} imageTitle="Река жизни" imageAuthor="Шаймарданов Альфрид" imageYear={2013} imagePrice="8.000 ₽"></GalleryImage>
                         </div>

@@ -10,7 +10,7 @@ const How: NextPageWithLayout = () => {
                 <title>Как заказать? - Навиное искусство</title>
                 <meta name="description" content="Как работает доставка" />
             </Head>
-            <div className="h-[35vw]">
+            <div className="h-[35vw] mb-[35vw]">
                 <div className="w-screen flex flex-col justify-center items-center text-naive-black">
                     <div className="mt-5 text-header2 font-semibold">Как работает доставка</div>
                     <div className="w-1/2 text-left mt-5">
